@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joshua Bangit - Computer Science Student Portfolio">
+    <meta name="description" content="Joshua Bangit - Computer Science Student Portfolio showcasing projects, achievements, and skills">
+    <meta name="keywords" content="CS Student, Portfolio, Web Development, Programming, Data Analysis">
+    <meta name="author" content="Joshua Bangit">
     <title>Joshua Bangit | CS Portfolio</title>
     
     <!-- Bootstrap CSS -->
@@ -15,14 +17,453 @@
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #ffae00;
+            --primary-dark: #e69e00;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #000000;
+            --text-light: #ffffff;
+            --text-gray: #adb5bd;
+            --transition-smooth: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            transition: var(--transition-smooth);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.95) !important;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(255, 174, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            margin: 0 0.5rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            position: relative;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><text x="10" y="20" font-size="10" fill="%23ffae00">《〈</text></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 174, 0, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-text::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 174, 0, 0.2);
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(255, 174, 0, 0.5);
+            transition: var(--transition-smooth);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 174, 0, 0.8);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Section Styles */
+        section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        .bg-dark-custom {
+            background: linear-gradient(135deg, #0a0a0a, #141414);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border: 1px solid rgba(255, 174, 0, 0.1);
+            transition: var(--transition-smooth);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 174, 0, 0.1), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(255, 174, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        /* Buttons */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            border: none;
+            color: var(--darker-bg);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 174, 0, 0.4);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--text-light);
+            background: transparent;
+            color: var(--text-light);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--darker-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Skills Icons */
+        .skill-icon {
+            font-size: 4rem;
+            transition: var(--transition-smooth);
+            filter: drop-shadow(0 0 10px rgba(255, 174, 0, 0.3));
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+            filter: drop-shadow(0 0 20px rgba(255, 174, 0, 0.8));
+        }
+
+        /* Form Styles */
+        .form-control {
+            background: rgba(26, 26, 26, 0.8) !important;
+            border: 2px solid rgba(255, 174, 0, 0.1) !important;
+            color: var(--text-light) !important;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 20px rgba(255, 174, 0, 0.2) !important;
+            transform: translateY(-2px);
+        }
+
+        .form-label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #000, #0a0a0a);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        footer a {
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        footer a:hover {
+            transform: translateY(-3px) scale(1.1);
+            color: var(--primary-color) !important;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 174, 0, 0.1);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .profile-img {
+                width: 250px;
+                height: 250px;
+                margin-top: 2rem;
+            }
+            
+            h1.display-4 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-lg {
+                padding: 0.5rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .skill-icon {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg p-3 navbar-dark bg-dark shadow-sm fw-bold fixed-top">
+    <nav class="navbar navbar-expand-lg p-3 navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fs-4" href="#home">Joshua Bangit</a>
+            <a class="navbar-brand" href="#home">Joshua Bangit</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,19 +481,19 @@
     </nav>
     
     <!-- Hero Section -->
-    <section id="home" class="hero d-flex align-items-center text-white position-relative">
-        <div class="container position-relative z-1">
+    <section id="home" class="hero d-flex align-items-center text-white">
+        <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="display-4 fw-bold">Hi, I'm <span class="highlight-text">Joshua Bangit</span></h1>
-                    <p class="lead mb-4">I am a Computer Science student passionate about developing innovative projects and solutions.</p>
-                    <div class="d-flex gap-3">
+                    <p class="lead mb-4">A passionate Computer Science student dedicated to creating innovative solutions through code and data.</p>
+                    <div class="d-flex gap-3 flex-wrap">
                         <a href="#projects" class="btn btn-primary btn-lg px-4">View My Work</a>
                         <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Me</a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center mt-4 mt-lg-0">
-                    <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/488859003_1206233814416470_5177424064851980358_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE9SsEEXzBPdFZ6-UW80FusAM8sBgLHBbAAzywGAscFsHb_AT1KbHT5YNUF8OuaHQKwYSC3Bnti5T_mXPHG931d&_nc_ohc=er5Bm7hzjtcQ7kNvwEjfW7P&_nc_oc=AdmBHKm05ZcN4IcAH_k47pAcAUE_HQ8k01iTmqzpFTMuZ-E_njPBeYHCEEer4q_F1MQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AHeRMEMZU7M7NuX-T9GBmxiPYAdwxCAiJ1SzMo_N02ISw&oe=681FEA83" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/488859003_1206233814416470_5177424064851980358_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE9SsEEXzBPdFZ6-UW80FusAM8sBgLHBbAAzywGAscFsHb_AT1KbHT5YNUF8OuaHQKwYSC3Bnti5T_mXPHG931d&_nc_ohc=er5Bm7hzjtcQ7kNvwEjfW7P&_nc_oc=AdmBHKm05ZcN4IcAH_k47pAcAUE_HQ8k01iTmqzpFTMuZ-E_njPBeYHCEEer4q_F1MQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AHeRMEMZU7M7NuX-T9GBmxiPYAdwxCAiJ1SzMo_N02ISw&oe=681FEA83" alt="Joshua Bangit" class="img-fluid rounded-circle profile-img">
                 </div>
             </div>
         </div>
@@ -61,38 +502,38 @@
     <!-- About Section -->
     <section id="about" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">About Me</h2>
+            <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">About Me</h2>
             <div class="row align-items-center">
-                <div class="col-md-6 text-center mb-4 mb-md-0">
-                    <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/488859003_1206233814416470_5177424064851980358_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE9SsEEXzBPdFZ6-UW80FusAM8sBgLHBbAAzywGAscFsHb_AT1KbHT5YNUF8OuaHQKwYSC3Bnti5T_mXPHG931d&_nc_ohc=er5Bm7hzjtcQ7kNvwEjfW7P&_nc_oc=AdmBHKm05ZcN4IcAH_k47pAcAUE_HQ8k01iTmqzpFTMuZ-E_njPBeYHCEEer4q_F1MQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AHeRMEMZU7M7NuX-T9GBmxiPYAdwxCAiJ1SzMo_N02ISw&oe=681FEA83" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
+                    <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/488859003_1206233814416470_5177424064851980358_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE9SsEEXzBPdFZ6-UW80FusAM8sBgLHBbAAzywGAscFsHb_AT1KbHT5YNUF8OuaHQKwYSC3Bnti5T_mXPHG931d&_nc_ohc=er5Bm7hzjtcQ7kNvwEjfW7P&_nc_oc=AdmBHKm05ZcN4IcAH_k47pAcAUE_HQ8k01iTmqzpFTMuZ-E_njPBeYHCEEer4q_F1MQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AHeRMEMZU7M7NuX-T9GBmxiPYAdwxCAiJ1SzMo_N02ISw&oe=681FEA83" alt="Joshua Bangit" class="img-fluid rounded-circle profile-img">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left">
                     <h3 class="highlight-text mb-3">Who Am I?</h3>
-                    <p class="mb-3">I am a dedicated computer science student with a strong passion for coding, problem-solving, and innovation. With a focus on web development, I enjoy creating functional and visually appealing applications.</p>
-                    <p class="mb-4">Currently pursuing my studies at City College of Angeles, I have worked on multiple projects that have honed my skills in both front-end and back-end development.</p>
+                    <p class="mb-3">I'm a dedicated computer science student with a passion for turning complex problems into elegant solutions. My journey in tech started with curiosity and has evolved into a deep love for coding and data analysis.</p>
+                    <p class="mb-4">Currently pursuing my studies at City College of Angeles, I've developed expertise in both front-end development and data analytics, always eager to learn and adapt to new technologies.</p>
                     
                     <blockquote class="blockquote fst-italic border-start border-3 border-primary ps-3 py-2 mb-4">
-                        <p>"The future belongs to those who believe in the beauty of their dreams."</p>
-                        <footer class="blockquote-footer">Eleanor Roosevelt</footer>
+                        <p class="mb-2">"The future belongs to those who believe in the beauty of their dreams."</p>
+                        <footer class="blockquote-footer text-white-50">Eleanor Roosevelt</footer>
                     </blockquote>
                     
                     <h3 class="highlight-text mt-4 mb-3">Background & Education</h3>
                     <div class="list-group list-group-flush">
                         <div class="list-group-item bg-transparent text-white border-secondary mb-2">
                             <i class="fas fa-laptop-code me-2 highlight-text"></i>
-                            Computer Science student with expertise in software development and system optimization
+                            Computer Science student specializing in software development and data analytics
                         </div>
                         <div class="list-group-item bg-transparent text-white border-secondary mb-2">
                             <i class="fas fa-graduation-cap me-2 highlight-text"></i>
-                            Currently studying at City College of Angeles, focusing on software engineering
+                            City College of Angeles · Expected Graduation: 2026
                         </div>
                         <div class="list-group-item bg-transparent text-white border-secondary mb-2">
                             <i class="fas fa-cogs me-2 highlight-text"></i>
-                            Passionate about automating workflows and creating efficient solutions
+                            Experienced in full-stack development, data cleaning, and visualization
                         </div>
                         <div class="list-group-item bg-transparent text-white border-secondary">
                             <i class="fas fa-star me-2 highlight-text"></i>
-                            Continuously learning and exploring emerging technologies
+                            Continuous learner exploring AI, machine learning, and cloud computing
                         </div>
                     </div>
                 </div>
@@ -102,50 +543,50 @@
 
     <!-- Achievements Section -->
     <section id="achievements" class="py-5 bg-dark-custom text-white">
-        <div class="container mt-5">
-            <h2 class="text-center mb-4 fw-bold">Achievements</h2>
-            <p class="text-center lead mb-5">Key milestones and accomplishments in my academic journey</p>
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold" data-aos="fade-up">Achievements</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up">Key milestones in my academic journey</p>
             <div class="row g-4 justify-content-center">
                 <!-- Dean's List Card -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/489527133_1019156532950122_2020231476496247218_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFdaDfHjJ7i9wbb2_xncXHAouKcT5iLmAKi4pxPmIuYAmuL6yH7g_-Xxz5Au--VroK3PRUgN8seHBWfRvSiASHf&_nc_ohc=h-D1vk9WvdEQ7kNvwFK3fMv&_nc_oc=AdmZ9ewFWGJlRkrxfg6a0Nms7jZizwyyVBSVW2GUXNGvllBY5rWEImn52-jBFZudUdA&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD2AEsZR1e_Ib0qJBKT7q7voFzz8aCacgHaYFA_kmcxXyVVw&oe=681FF9BA" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dean's List Certificate">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 achievement-card">
+                        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/489527133_1019156532950122_2020231476496247218_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFdaDfHjJ7i9wbb2_xncXHAouKcT5iLmAKi4pxPmIuYAmuL6yH7g_-Xxz5Au--VroK3PRUgN8seHBWfRvSiASHf&_nc_ohc=h-D1vk9WvdEQ7kNvwFK3fMv&_nc_oc=AdmZ9ewFWGJlRkrxfg6a0Nms7jZizwyyVBSVW2GUXNGvllBY5rWEImn52-jBFZudUdA&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD2AEsZR1e_Ib0qJBKT7q7voFzz8aCacgHaYFA_kmcxXyVVw&oe=681FF9BA" class="card-img-top" alt="Dean's List">
                         <div class="card-body">
                             <h5 class="card-title highlight-text">Dean's List</h5>
-                            <p class="card-text">Achieved Dean's List honors in the first semester for academic excellence.</p>
+                            <p class="card-text">First Semester Dean's List honoree for maintaining exceptional academic performance.</p>
                         </div>
                     </div>
                 </div>
     
                 <!-- Cisco Certificate Card -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/489280628_1131540449019680_405736001047116123_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGZcY12jQxMxE7xCDEqKRLnknG2-P6rRX6Scbb4_qtFftaIkOllMJP6mrwwVJrb7oxvUz3S3gjeTfojcrKeHciQ&_nc_ohc=uHT5M_AtaIgQ7kNvwGtQoLz&_nc_oc=AdnLoXku6BoBqj-M91RY1B9jOfl6hF5DJ-c9GaWQNsXrVRYFrg-lS6wnxKTa8Y2XmGQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AEI8jBlG9R4Q0SqHlfd6CdAKi8UgLhc5gUSDNcQog9CBA&oe=682007E6" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cisco Networking Certificate">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 achievement-card">
+                        <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/489280628_1131540449019680_405736001047116123_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGZcY12jQxMxE7xCDEqKRLnknG2-P6rRX6Scbb4_qtFftaIkOllMJP6mrwwVJrb7oxvUz3S3gjeTfojcrKeHciQ&_nc_ohc=uHT5M_AtaIgQ7kNvwGtQoLz&_nc_oc=AdnLoXku6BoBqj-M91RY1B9jOfl6hF5DJ-c9GaWQNsXrVRYFrg-lS6wnxKTa8Y2XmGQ&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD2AEI8jBlG9R4Q0SqHlfd6CdAKi8UgLhc5gUSDNcQog9CBA&oe=682007E6" class="card-img-top" alt="Cisco Certificate">
                         <div class="card-body">
-                            <h5 class="card-title highlight-text">Cisco Certificate</h5>
-                            <p class="card-text">CCNAv7: Introduction to Networks Certificate demonstrating networking fundamentals.</p>
+                            <h5 class="card-title highlight-text">Cisco Certified</h5>
+                            <p class="card-text">CCNAv7: Introduction to Networks - demonstrating networking fundamentals.</p>
                         </div>
                     </div>
                 </div>
     
                 <!-- IT Essentials Card -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.15752-9/488387082_937673255245168_1232028065633113227_n.png?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHb9rVmVBFEpLn_5KKbVFaJ2JbWa8OsVr7YltZrw6xWvqlcCQag_TakzRPRW-ixFUFL6d7fYDzRCJR_L-6mh4GB&_nc_ohc=SW_IvvaLf_oQ7kNvwFZpSc2&_nc_oc=AdnGmKPs3aQ6-JynVsB4acPc9qtBFMBsADvXprh3chsdX7JVFRkWwguCBn_FWutmGRg&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&oh=03_Q7cD2AGZE3-G8wsf7qcKq38xQ19XRjOvHrs8CinyrXCyLsfkIA&oe=681FD706" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cisco IT Essentials Certificate">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 achievement-card">
+                        <img src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.15752-9/488387082_937673255245168_1232028065633113227_n.png?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHb9rVmVBFEpLn_5KKbVFaJ2JbWa8OsVr7YltZrw6xWvqlcCQag_TakzRPRW-ixFUFL6d7fYDzRCJR_L-6mh4GB&_nc_ohc=SW_IvvaLf_oQ7kNvwFZpSc2&_nc_oc=AdnGmKPs3aQ6-JynVsB4acPc9qtBFMBsADvXprh3chsdX7JVFRkWwguCBn_FWutmGRg&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&oh=03_Q7cD2AGZE3-G8wsf7qcKq38xQ19XRjOvHrs8CinyrXCyLsfkIA&oe=681FD706" class="card-img-top" alt="IT Essentials">
                         <div class="card-body">
                             <h5 class="card-title highlight-text">IT Essentials</h5>
-                            <p class="card-text">IT Essential: PC Hardware and Software Certificate for hardware expertise.</p>
+                            <p class="card-text">PC Hardware and Software Certificate - expertise in hardware and software.</p>
                         </div>
                     </div>
                 </div>
     
                 <!-- I-Days Event Card -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/488865912_2099951273787306_6163398485880104669_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEmC9A8wSpiJkhX1J-qp6laIPpHo8jma_Eg-kejyOZr8QzZsApJ_DSs7fVG5uE9NccNhmLg5aUANYES8QMrdC9W&_nc_ohc=grUa7dL4h40Q7kNvwFKLPoK&_nc_oc=AdntXZp7kzu_A4gUZdamZLh5jy3FJLQiAkZi-nTKCE6bJ2fUQi3eWy3uqEy-oywapB8&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD2AHmyOwhMjifuqpTmLg1QJR9cySyjH3_mrh3gQDbskeFLA&oe=68200802" class="card-img-top" style="height: 200px; object-fit: cover;" alt="I-Days Event Award">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card h-100 achievement-card">
+                        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/488865912_2099951273787306_6163398485880104669_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEmC9A8wSpiJkhX1J-qp6laIPpHo8jma_Eg-kejyOZr8QzZsApJ_DSs7fVG5uE9NccNhmLg5aUANYES8QMrdC9W&_nc_ohc=grUa7dL4h40Q7kNvwFKLPoK&_nc_oc=AdntXZp7kzu_A4gUZdamZLh5jy3FJLQiAkZi-nTKCE6bJ2fUQi3eWy3uqEy-oywapB8&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD2AHmyOwhMjifuqpTmLg1QJR9cySyjH3_mrh3gQDbskeFLA&oe=68200802" class="card-img-top" alt="I-Days Event">
                         <div class="card-body">
                             <h5 class="card-title highlight-text">I-Days Event</h5>
-                            <p class="card-text">1st Runner Up in the Tumpakners competition at I-Days event.</p>
+                            <p class="card-text">1st Runner Up - Tumpakners competition, demonstrating creativity and teamwork.</p>
                         </div>
                     </div>
                 </div>
@@ -153,21 +594,22 @@
         </div>
     </section>
 
-    <!-- Practice Task Section -->
+    <!-- Projects Section -->
     <section id="projects" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-4">Practice Task 2-4</h2>
-            <p class="text-center lead mb-5">Innovative Creations</p>
+            <h2 class="text-center mb-4" data-aos="fade-up">My Projects</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up">Showcasing my work in data analysis and development</p>
             
-            <!-- First Row -->
-            <div class="row g-4 justify-content-center">
-                <!-- Multi Functional Calculator -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2.">
+            <!-- Practice Tasks 2-4 -->
+            <h3 class="text-center highlight-text mb-4" data-aos="fade-up">Practice Tasks 2-4</h3>
+            <div class="row g-4 justify-content-center mb-5">
+                <!-- Practice Task 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card h-100 project-card">
+                        <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2">
                         <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 2. Demo Data Analysis</h5>
-                            <p class="card-text text-white">Practice Task 2 focuses on analyzing a sample dataset to identify patterns, interpret results, and demonstrate basic data analysis skills.</p>
+                            <h5 class="card-title highlight-text">Practice Task 2: Data Analysis</h5>
+                            <p class="card-text">Comprehensive data analysis project demonstrating pattern identification and interpretation of sample datasets.</p>
                             <div class="d-flex gap-2 mt-3">
                                 <a href="https://www.figma.com/proto/fXLP4QU8lGLOfzslDpyLET/ARCEO%2CBANGIT%2CLANCANAN%2CMORTEL?node-id=15-33&starting-point-node-id=356%3A44" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
                                 <a href="https://drive.google.com/file/d/1tL1Ny1T-4sQ6_5pGeKb6jwJBLPbU9amF/view?usp=sharing" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
@@ -177,12 +619,12 @@
                 </div>
                 
                 <!-- Practice Task 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3.">
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card h-100 project-card">
+                        <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3">
                         <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 3. Advanced Excel Functions</h5>
-                            <p class="card-text text-white">Practice Task 3 focuses on using advanced Excel functions to organize data, perform calculations, and improve data analysis efficiency.</p>
+                            <h5 class="card-title highlight-text">Practice Task 3: Advanced Excel</h5>
+                            <p class="card-text">Advanced Excel functions implementation for data organization, calculations, and efficient analysis.</p>
                             <div class="d-flex gap-2 mt-3"> 
                                 <a href="https://drive.google.com/file/d/1ZPxwNNFyVOEYyERovg0zd718nKIgvIm_/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
                                 <a href="https://docs.google.com/spreadsheets/d/1repX3u4GNJTCBh9LCB3kkjK9E2JOGH0Y/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
@@ -192,12 +634,12 @@
                 </div>
                 
                 <!-- Practice Task 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4.">
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card h-100 project-card">
+                        <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4">
                         <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 4. Data Cleaning and Prep using Power Query</h5>
-                            <p class="card-text text-white">Practice Task 4 demonstrates how to use Power Query to clean, organize, and transform raw data into a structured format suitable for analysis.</p>
+                            <h5 class="card-title highlight-text">Practice Task 4: Power Query</h5>
+                            <p class="card-text">Data cleaning and preparation using Power Query to transform raw data into structured formats.</p>
                             <div class="d-flex gap-2 mt-3">
                                 <a href="https://drive.google.com/file/d/1aJ-wfR0KsO9DEV-jqagR74Sf2DS5q5kr/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
                                 <a href="https://drive.google.com/drive/folders/1l1sspwjtzbD2hpG1Z-8FaVrU2pHNSqhY" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
@@ -205,27 +647,18 @@
                         </div>
                     </div>
                 </div>
-            </div>               
             </div>
-        </div>
-    </section>
 
-        <!-- Midterm Task Section -->
-        <section id="projects" class="py-5 bg-dark-custom text-white">
-          <div class="container">
-              <h2 class="text-center mb-4">Midterm Task 1 and 2</h2>
-              <p class="text-center lead mb-5">Innovative Creations</p>
-              
-              <!-- First Row -->
-              <div class="row g-4 justify-content-center">
-                  <!-- Multi Functional Calculator -->
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
+            <!-- Midterm Tasks -->
+            <h3 class="text-center highlight-text mb-4" data-aos="fade-up">Midterm Tasks</h3>
+            <div class="row g-4 justify-content-center">
+                <!-- Midterm Task 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="flip-right" data-aos-delay="100">
+                    <div class="card h-100 project-card">
                         <img src="images/Midterm Task 1. Data Cleaning and Modeling.PNG" class="card-img-top" alt="Midterm Task 1">
                         <div class="card-body">
-                            <h5 class="card-title highlight-text">Midterm Task 1. Data Cleaning and Modeling</h5>
-                            <p class="card-text text-white">Midterm Task 1 focuses on cleaning raw data and creating a structured data model to prepare it for accurate analysis.</p>
+                            <h5 class="card-title highlight-text">Midterm Task 1: Data Modeling</h5>
+                            <p class="card-text">Data cleaning and modeling project creating structured datasets for accurate analysis.</p>
                             <div class="d-flex gap-2 mt-3"> 
                                 <a href="https://drive.google.com/file/d/1bTYYHG6iIB0OKfTjNjkIPYPK_ufLkjl-/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
                                 <a href="https://docs.google.com/spreadsheets/d/10CkAlfa_jCsJH0wxWyQxRgXug6f6vu9m/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
@@ -233,95 +666,93 @@
                         </div>
                     </div>
                 </div>
-          
-                  <div class="col-lg-4 col-md-6">
-                      <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Lab Task 2">
-                          <div class="card-body">
-                              <h5 class="card-title highlight-text">Midterm Lab Task 2. Data Preparation and Modeling using Power Query</h5>
-                              <p class="card-text text-white">Midterm Lab Task 2 focuses on preparing, transforming, and modeling data using Power Query to create a structured dataset for analysis.</p>
-                              <div class="d-flex gap-2 mt-3">
-                                  <a href="https://drive.google.com/file/d/11qpCbwtbjTLG2DHc2wCyv1PSiEBFeAXV/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                  <a href="https://drive.google.com/drive/folders/1N8gaHfT4iHgmiT2Q9qU5GmR03ZpeIUwq" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
                 
-              </div>               
-              </div>
-          </div>
-      </section>
+                <!-- Midterm Task 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="flip-right" data-aos-delay="200">
+                    <div class="card h-100 project-card">
+                        <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Task 2">
+                        <div class="card-body">
+                            <h5 class="card-title highlight-text">Midterm Task 2: Power Query</h5>
+                            <p class="card-text">Advanced data preparation and modeling using Power Query for comprehensive analysis.</p>
+                            <div class="d-flex gap-2 mt-3">
+                                <a href="https://drive.google.com/file/d/11qpCbwtbjTLG2DHc2wCyv1PSiEBFeAXV/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
+                                <a href="https://drive.google.com/drive/folders/1N8gaHfT4iHgmiT2Q9qU5GmR03ZpeIUwq" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-4">Skills</h2>
-            <p class="text-center lead mb-5">Technologies and tools I work with.</p>
+            <h2 class="text-center mb-4" data-aos="fade-up">Skills & Expertise</h2>
+            <p class="text-center lead mb-5" data-aos="fade-up">Technologies and tools I work with daily</p>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Programming Languages</h5>
+            <div class="mb-5" data-aos="fade-up">
+                <h4 class="text-center highlight-text mb-4">Programming Languages</h4>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
                         <i class="devicon-c-plain colored skill-icon"></i>
-                        <p>C</p>
+                        <p class="mt-2">C Programming</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-java-plain colored skill-icon"></i>
-                        <p>Java</p>
+                        <p class="mt-2">Java</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-python-plain colored skill-icon"></i>
-                        <p>Python</p>
+                        <p class="mt-2">Python</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-mysql-plain colored skill-icon"></i>
-                        <p>MySQL</p>
+                        <p class="mt-2">MySQL</p>
                     </div>
                 </div>
             </div>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Web Development</h5>
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-center highlight-text mb-4">Web Development</h4>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
                         <i class="devicon-html5-plain colored skill-icon"></i>
-                        <p>HTML</p>
+                        <p class="mt-2">HTML5</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-css3-plain colored skill-icon"></i>
-                        <p>CSS</p>
+                        <p class="mt-2">CSS3</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-javascript-plain colored skill-icon"></i>
-                        <p>JavaScript</p>
+                        <p class="mt-2">JavaScript</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-bootstrap-plain colored skill-icon"></i>
-                        <p>Bootstrap</p>
+                        <p class="mt-2">Bootstrap</p>
                     </div>
                 </div>
             </div>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Tools & IDEs</h5>
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-center highlight-text mb-4">Tools & IDEs</h4>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
                         <i class="devicon-androidstudio-plain colored skill-icon"></i>
-                        <p>Android Studio</p>
+                        <p class="mt-2">Android Studio</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-photoshop-plain colored skill-icon"></i>
-                        <p>Photoshop</p>
+                        <p class="mt-2">Photoshop</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-figma-plain colored skill-icon"></i>
-                        <p>Figma</p>
+                        <p class="mt-2">Figma</p>
                     </div>
                     <div class="col-md-3 col-6">
                         <i class="devicon-visualstudio-plain colored skill-icon"></i>
-                        <p>Visual Studio</p>
+                        <p class="mt-2">VS Code</p>
                     </div>
                 </div>
             </div>
@@ -332,33 +763,33 @@
     <section id="contact" class="py-5 bg-dark-custom text-white">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-5">
-                    <h2 class="fw-bold mb-3">Contact</h2>
-                    <p class="lead">Have a project in mind or want to connect? Feel free to reach out!</p>
+                <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
+                    <h2 class="fw-bold mb-3">Get In Touch</h2>
+                    <p class="lead">Have a project in mind or want to connect? I'd love to hear from you!</p>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
                     <form id="contactForm">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" id="name" placeholder="Your name" required>
+                                <input type="text" class="form-control" id="name" placeholder="Your name" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control bg-dark text-white border-secondary" id="email" placeholder="your.email@example.com" required>
+                                <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
                             </div>
                         </div>
                         
                         <div class="mb-3">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" id="subject" placeholder="Subject of your message" required>
+                            <input type="text" class="form-control" id="subject" placeholder="What would you like to discuss?" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control bg-dark text-white border-secondary" id="message" rows="5" placeholder="Hey there, I'd like to discuss..." required></textarea>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
                         </div>
                         
                         <div class="text-center">
@@ -374,16 +805,122 @@
     <footer class="py-4 bg-black text-white text-center">
         <div class="container">
             <div class="mb-3">
-                <a href="https://www.facebook.com/joshuabangit1" class="text-white mx-2" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://www.instagram.com/js.bnz/" class="text-white mx-2" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="text-white mx-2" target="_blank"><i class="fab fa-google fa-2x"></i></a>
+                <a href="https://www.facebook.com/joshuabangit1" class="text-white mx-3" target="_blank" title="Facebook"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.instagram.com/js.bnz/" class="text-white mx-3" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="mailto:joshuabangit@example.com" class="text-white mx-3" target="_blank" title="Email"><i class="fab fa-google fa-2x"></i></a>
+                <a href="https://github.com/joshuabangit" class="text-white mx-3" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://linkedin.com/in/joshuabangit" class="text-white mx-3" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
-            <p class="mb-0">&copy; <span id="year"></span> Joshua Bangit. All rights reserved.</p>
+            <p class="mb-0">&copy; <span id="year"></span> Joshua Bangit. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i> in Angeles City</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Hide loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+            }, 500);
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav link
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Contact form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Success animation
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-primary');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-primary');
+            }, 3000);
+            
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('#home');
+            const scrolled = window.scrollY;
+            hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+        });
+    </script>
 </body>
 </html>
