@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
+    
+    // Check if we're on index page and handle active nav
+    updateActiveNavLink();
 });
 
 // Navbar scroll effect
@@ -16,6 +19,7 @@ window.addEventListener('scroll', function() {
     } else {
         navbar.classList.remove('scrolled');
     }
+    updateActiveNavLink();
 });
 
 // Contact form validation and submission
@@ -34,39 +38,129 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validation
             if (name === '' || email === '' || subject === '' || message === '') {
-                showAlert('All fields are required.', 'warning');
+                showNotification('All fields are required.', 'warning');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showAlert('Please enter a valid email address.', 'warning');
+                showNotification('Please enter a valid email address.', 'warning');
                 return;
             }
             
             // Success message
-            showAlert('Message sent successfully! (Demo - no actual email sent)', 'success');
+            showNotification('Message sent successfully! (Demo - no actual email sent)', 'success');
             contactForm.reset();
         });
     }
 });
 
-// Custom alert function (replaces default alert with styled version)
-function showAlert(message, type = 'info') {
-    // Remove any existing alert
-    const existingAlert = document.querySelector('.custom-alert');
-    if (existingAlert) {
-        existingAlert.remove();
+// Show notification function
+function showNotification(message, type) {
+    // Remove existing notification
+    const existingNotification = document.querySelector('.custom-notification');
+    if (existingNotification) {
+        existingNotification.remove();
     }
     
-    // Create alert element
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `custom-alert alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-4`;
-    alertDiv.style.zIndex = '9999';
-    alertDiv.style.minWidth = '300px';
-    alertDiv.style.textAlign = 'center';
-    alertDiv.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-    alertDiv.style.animation = 'slideDown 0.3s ease';
-    alertDiv.textContent = message;
+    // Create notification element
+    const notificationDiv = document.createElement('div');
+    notificationDiv.className = `custom-notification alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-4`;
+    notificationDiv.style.zIndex = '9999';
+    notificationDiv.style.minWidth = '300px';
+    notificationDiv.style.textAlign = 'center';
+    notificationDiv.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+    notificationDiv.style.animation = 'slideDown 0.3s ease';
+    notificationDiv.innerHTML = `
+        <div class="d-flex align-items-center justify-content-center">
+            ${type === 'success' ? '<i class="fas fa-check-circle me-2"></i>' : ''}
+            ${type === 'warning' ? '<i class="fas fa-exclamation-triangle me-2"></i>' : ''}
+            ${type === 'info' ? '<i class="fas fa-info-circle me-2"></i>' : ''}
+            ${message}
+        </div>
+    `;
+    
+    document.body.appendChild(notificationDiv);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        notificationDiv.remove();
+    }, 3000);
 }
+
+// Update active nav link based on scroll position
+function updateActiveNavLink() {
+    // Don't run on downloads page
+    if (window.location.pathname.includes('downloads.html')) {
+        return;
+    }
+    
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        const scrollY = window.scrollY;
+        
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        
+        // Handle hash links
+        if (href.startsWith('#')) {
+            const sectionId = href.substring(1);
+            if (sectionId === currentSection) {
+                link.classList.add('active');
+            }
+        }
+    });
+}
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from {
+            transform: translate(-50%, -100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+    }
+    
+    .custom-notification {
+        animation: slideDown 0.3s ease;
+    }
+`;
+document.head.appendChild(style);
+
+// Console welcome message
+console.log('🚀 Joshua Bangit Portfolio loaded');
