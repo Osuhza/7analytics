@@ -15,6 +15,9 @@
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -45,15 +48,18 @@
         <div class="container position-relative z-1">
             <div class="row align-items-center">
                 <div class="col-lg-6">
+                    <p class="hero-tag mb-2"><span class="tag-dot"></span> Available for opportunities</p>
                     <h1 class="display-4 fw-bold">Hi, I'm <span class="highlight-text">Joshua Bangit</span></h1>
                     <p class="lead mb-4">I am a Computer Science student passionate about developing innovative projects and solutions.</p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex gap-3 flex-wrap">
                         <a href="#practice-task" class="btn btn-primary btn-lg px-4">View My Work</a>
                         <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Me</a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center mt-4 mt-lg-0">
-                    <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <div class="profile-wrapper">
+                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,12 +68,17 @@
     <!-- About Section -->
     <section id="about" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">About Me</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center mb-4 mb-md-0">
-                    <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">About Me</h2>
+                <p class="lead text-muted">Get to know me better</p>
+            </div>
+            <div class="row align-items-center g-5">
+                <div class="col-md-5 text-center">
+                    <div class="profile-wrapper">
+                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                    </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <h3 class="highlight-text mb-3">Who Am I?</h3>
                     <p class="mb-3">I am a dedicated computer science student with a strong passion for coding, problem-solving, and innovation. With a focus on web development, I enjoy creating functional and visually appealing applications.</p>
                     <p class="mb-4">Currently pursuing my studies at City College of Angeles, I have worked on multiple projects that have honed my skills in both front-end and back-end development.</p>
@@ -78,22 +89,22 @@
                     </blockquote>
                     
                     <h3 class="highlight-text mt-4 mb-3">Background & Education</h3>
-                    <div class="list-group list-group-flush">
-                        <div class="list-group-item bg-transparent text-white border-secondary mb-2">
-                            <i class="fas fa-laptop-code me-2 highlight-text"></i>
-                            Computer Science student with expertise in software development and system optimization
+                    <div class="about-list">
+                        <div class="about-item">
+                            <i class="fas fa-laptop-code highlight-text"></i>
+                            <span>Computer Science student with expertise in software development and system optimization</span>
                         </div>
-                        <div class="list-group-item bg-transparent text-white border-secondary mb-2">
-                            <i class="fas fa-graduation-cap me-2 highlight-text"></i>
-                            Currently studying at City College of Angeles, focusing on software engineering
+                        <div class="about-item">
+                            <i class="fas fa-graduation-cap highlight-text"></i>
+                            <span>Currently studying at City College of Angeles, focusing on software engineering</span>
                         </div>
-                        <div class="list-group-item bg-transparent text-white border-secondary mb-2">
-                            <i class="fas fa-cogs me-2 highlight-text"></i>
-                            Passionate about automating workflows and creating efficient solutions
+                        <div class="about-item">
+                            <i class="fas fa-cogs highlight-text"></i>
+                            <span>Passionate about automating workflows and creating efficient solutions</span>
                         </div>
-                        <div class="list-group-item bg-transparent text-white border-secondary">
-                            <i class="fas fa-star me-2 highlight-text"></i>
-                            Continuously learning and exploring emerging technologies
+                        <div class="about-item">
+                            <i class="fas fa-star highlight-text"></i>
+                            <span>Continuously learning and exploring emerging technologies</span>
                         </div>
                     </div>
                 </div>
@@ -103,17 +114,21 @@
 
     <!-- Achievements Section -->
     <section id="achievements" class="py-5 bg-dark-custom text-white">
-        <div class="container mt-5">
-            <h2 class="text-center mb-4 fw-bold">Achievements</h2>
-            <p class="text-center lead mb-5">Key milestones and accomplishments in my academic journey</p>
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">Achievements</h2>
+                <p class="lead text-muted">Key milestones and accomplishments in my academic journey</p>
+            </div>
             <div class="row g-4 justify-content-center">
                 <!-- Dean's List Card -->
                 <div class="col-lg-3 col-md-6">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="images/dean's list.jpg" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Dean's List Certificate">
-                        <div class="card-body">
+                        <div class="card-img-wrapper">
+                            <img src="images/dean's list.jpg" class="card-img-top" alt="Dean's List Certificate">
+                        </div>
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">Dean's List</h5>
-                            <p class="card-text">Achieved Dean's List honors in the first semester for academic excellence.</p>
+                            <p class="card-text flex-grow-1">Achieved Dean's List honors in the first semester for academic excellence.</p>
                         </div>
                     </div>
                 </div>
@@ -121,10 +136,12 @@
                 <!-- Cisco Certificate Card -->
                 <div class="col-lg-3 col-md-6">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="images/CCNA_Introduction_to_Networks_certificate.jpg" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cisco Networking Certificate">
-                        <div class="card-body">
+                        <div class="card-img-wrapper">
+                            <img src="images/CCNA_Introduction_to_Networks_certificate.jpg" class="card-img-top" alt="Cisco Networking Certificate">
+                        </div>
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">Cisco Certificate</h5>
-                            <p class="card-text">CCNAv7: Introduction to Networks Certificate demonstrating networking fundamentals.</p>
+                            <p class="card-text flex-grow-1">CCNAv7: Introduction to Networks Certificate demonstrating networking fundamentals.</p>
                         </div>
                     </div>
                 </div>
@@ -132,10 +149,12 @@
                 <!-- IT Essentials Card -->
                 <div class="col-lg-3 col-md-6">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="images/PC Hardware and Software Certificate.jpg" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cisco IT Essentials Certificate">
-                        <div class="card-body">
+                        <div class="card-img-wrapper">
+                            <img src="images/PC Hardware and Software Certificate.jpg" class="card-img-top" alt="Cisco IT Essentials Certificate">
+                        </div>
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">IT Essentials</h5>
-                            <p class="card-text">IT Essential: PC Hardware and Software Certificate for hardware expertise.</p>
+                            <p class="card-text flex-grow-1">IT Essential: PC Hardware and Software Certificate for hardware expertise.</p>
                         </div>
                     </div>
                 </div>
@@ -143,10 +162,12 @@
                 <!-- I-Days Event Card -->
                 <div class="col-lg-3 col-md-6">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
-                        <img src="images/i-days.jpg" class="card-img-top" style="height: 200px; object-fit: cover;" alt="I-Days Event Award">
-                        <div class="card-body">
+                        <div class="card-img-wrapper">
+                            <img src="images/i-days.jpg" class="card-img-top" alt="I-Days Event Award">
+                        </div>
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">I-Days Event</h5>
-                            <p class="card-text">Runner Up in the competition at I-Days event.</p>
+                            <p class="card-text flex-grow-1">Runner Up in the competition at I-Days event.</p>
                         </div>
                     </div>
                 </div>
@@ -157,21 +178,34 @@
     <!-- Practice Task Section -->
     <section id="practice-task" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-4">Practice Task</h2>
-            <p class="text-center lead mb-5">Innovative Creations</p>
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">Practice Tasks</h2>
+                <p class="lead text-muted">Innovative Creations</p>
+            </div>
             
-            <!-- First Row -->
             <div class="row g-4 justify-content-center">
-                <!-- Multi Functional Calculator -->
+                <!-- Practice Task 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2">
-                        <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 2. Demo Data Analysis</h5>
-                            <p class="card-text text-white">Practice Task 2 focuses on analyzing a sample dataset to identify patterns, interpret results, and demonstrate basic data analysis skills.</p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://drive.google.com/file/d/1tL1Ny1T-4sQ6_5pGeKb6jwJBLPbU9amF/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                <a href="https://classroom.google.com/c/ODQwOTE3MDkwMjcz/a/ODQ1NzkwOTQxOTgx/details" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                    <div class="card shadow-sm border-0 project-card bg-black h-100">
+                        <div class="card-img-wrapper">
+                            <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2">
+                            <div class="card-img-overlay-badge">Task 02</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title highlight-text">Demo Data Analysis</h5>
+                            <p class="card-text text-white flex-grow-1">Practice Task 2 focuses on analyzing a sample dataset to identify patterns, interpret results, and demonstrate basic data analysis skills.</p>
+                            <div class="card-actions mt-3">
+                                <div class="d-flex gap-2 mb-2">
+                                    <a href="https://drive.google.com/file/d/1tL1Ny1T-4sQ6_5pGeKb6jwJBLPbU9amF/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">
+                                        <i class="fas fa-eye me-1"></i> Live Demo
+                                    </a>
+                                    <a href="https://classroom.google.com/c/ODQwOTE3MDkwMjcz/a/ODQ1NzkwOTQxOTgx/details" target="_blank" class="btn btn-outline-light flex-grow-1">
+                                        <i class="fab fa-github me-1"></i> Repository
+                                    </a>
+                                </div>
+                                <a href="https://drive.google.com/uc?export=download&id=1tL1Ny1T-4sQ6_5pGeKb6jwJBLPbU9amF" class="btn btn-download w-100">
+                                    <i class="fas fa-download me-2"></i> Download Raw File
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -179,14 +213,26 @@
                 
                 <!-- Practice Task 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3">
-                        <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 3. Advanced Excel Functions</h5>
-                            <p class="card-text text-white">Practice Task 3 focuses on using advanced Excel functions to organize data, perform calculations, and improve data analysis efficiency.</p>
-                            <div class="d-flex gap-2 mt-3"> 
-                                <a href="https://drive.google.com/file/d/1ZPxwNNFyVOEYyERovg0zd718nKIgvIm_/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                <a href="https://docs.google.com/spreadsheets/d/1repX3u4GNJTCBh9LCB3kkjK9E2JOGH0Y/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                    <div class="card shadow-sm border-0 project-card bg-black h-100">
+                        <div class="card-img-wrapper">
+                            <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3">
+                            <div class="card-img-overlay-badge">Task 03</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title highlight-text">Advanced Excel Functions</h5>
+                            <p class="card-text text-white flex-grow-1">Practice Task 3 focuses on using advanced Excel functions to organize data, perform calculations, and improve data analysis efficiency.</p>
+                            <div class="card-actions mt-3">
+                                <div class="d-flex gap-2 mb-2">
+                                    <a href="https://drive.google.com/file/d/1ZPxwNNFyVOEYyERovg0zd718nKIgvIm_/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">
+                                        <i class="fas fa-eye me-1"></i> Live Demo
+                                    </a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1repX3u4GNJTCBh9LCB3kkjK9E2JOGH0Y/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">
+                                        <i class="fab fa-github me-1"></i> Repository
+                                    </a>
+                                </div>
+                                <a href="https://drive.google.com/uc?export=download&id=1ZPxwNNFyVOEYyERovg0zd718nKIgvIm_" class="btn btn-download w-100">
+                                    <i class="fas fa-download me-2"></i> Download Raw File
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -194,14 +240,26 @@
                 
                 <!-- Practice Task 4 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4">
-                        <div class="card-body">
-                            <h5 class="card-title highlight-text">Practice Task 4. Data Cleaning and Prep using Power Query</h5>
-                            <p class="card-text text-white">Practice Task 4 demonstrates how to use Power Query to clean, organize, and transform raw data into a structured format suitable for analysis.</p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://drive.google.com/file/d/1aJ-wfR0KsO9DEV-jqagR74Sf2DS5q5kr/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                <a href="https://drive.google.com/drive/folders/1l1sspwjtzbD2hpG1Z-8FaVrU2pHNSqhY" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                    <div class="card shadow-sm border-0 project-card bg-black h-100">
+                        <div class="card-img-wrapper">
+                            <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4">
+                            <div class="card-img-overlay-badge">Task 04</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title highlight-text">Data Cleaning & Power Query</h5>
+                            <p class="card-text text-white flex-grow-1">Practice Task 4 demonstrates how to use Power Query to clean, organize, and transform raw data into a structured format suitable for analysis.</p>
+                            <div class="card-actions mt-3">
+                                <div class="d-flex gap-2 mb-2">
+                                    <a href="https://drive.google.com/file/d/1aJ-wfR0KsO9DEV-jqagR74Sf2DS5q5kr/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">
+                                        <i class="fas fa-eye me-1"></i> Live Demo
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1l1sspwjtzbD2hpG1Z-8FaVrU2pHNSqhY" target="_blank" class="btn btn-outline-light flex-grow-1">
+                                        <i class="fab fa-github me-1"></i> Repository
+                                    </a>
+                                </div>
+                                <a href="https://drive.google.com/uc?export=download&id=1aJ-wfR0KsO9DEV-jqagR74Sf2DS5q5kr" class="btn btn-download w-100">
+                                    <i class="fas fa-download me-2"></i> Download Raw File
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -213,21 +271,34 @@
     <!-- Midterm Task Section -->
     <section id="midterm-task" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-4">Midterm Task 1 and 2</h2>
-            <p class="text-center lead mb-5">Innovative Creations</p>
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">Midterm Tasks</h2>
+                <p class="lead text-muted">Innovative Creations</p>
+            </div>
             
-            <!-- First Row -->
             <div class="row g-4 justify-content-center">
                 <!-- Midterm Task 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Midterm Task 1. Data Cleaning and Modeling.PNG" class="card-img-top" alt="Midterm Task 1">
-                        <div class="card-body">
-                            <h5 class="card-title highlight-text">Midterm Task 1. Data Cleaning and Modeling</h5>
-                            <p class="card-text text-white">Midterm Task 1 focuses on cleaning raw data and creating a structured data model to prepare it for accurate analysis.</p>
-                            <div class="d-flex gap-2 mt-3"> 
-                                <a href="https://drive.google.com/file/d/1bTYYHG6iIB0OKfTjNjkIPYPK_ufLkjl-/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                <a href="https://docs.google.com/spreadsheets/d/10CkAlfa_jCsJH0wxWyQxRgXug6f6vu9m/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                    <div class="card shadow-sm border-0 project-card bg-black h-100">
+                        <div class="card-img-wrapper">
+                            <img src="images/Midterm Task 1. Data Cleaning and Modeling.PNG" class="card-img-top" alt="Midterm Task 1">
+                            <div class="card-img-overlay-badge midterm-badge">Midterm 01</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title highlight-text">Data Cleaning and Modeling</h5>
+                            <p class="card-text text-white flex-grow-1">Midterm Task 1 focuses on cleaning raw data and creating a structured data model to prepare it for accurate analysis.</p>
+                            <div class="card-actions mt-3">
+                                <div class="d-flex gap-2 mb-2">
+                                    <a href="https://drive.google.com/file/d/1bTYYHG6iIB0OKfTjNjkIPYPK_ufLkjl-/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">
+                                        <i class="fas fa-eye me-1"></i> Live Demo
+                                    </a>
+                                    <a href="https://docs.google.com/spreadsheets/d/10CkAlfa_jCsJH0wxWyQxRgXug6f6vu9m/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-outline-light flex-grow-1">
+                                        <i class="fab fa-github me-1"></i> Repository
+                                    </a>
+                                </div>
+                                <a href="https://drive.google.com/uc?export=download&id=1bTYYHG6iIB0OKfTjNjkIPYPK_ufLkjl-" class="btn btn-download w-100">
+                                    <i class="fas fa-download me-2"></i> Download Raw File
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -235,14 +306,26 @@
           
                 <!-- Midterm Task 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm border-0 pb-4 project-card bg-black">
-                        <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Lab Task 2">
-                        <div class="card-body">
-                            <h5 class="card-title highlight-text">Midterm Lab Task 2. Data Preparation and Modeling using Power Query</h5>
-                            <p class="card-text text-white">Midterm Lab Task 2 focuses on preparing, transforming, and modeling data using Power Query to create a structured dataset for analysis.</p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="https://drive.google.com/file/d/11qpCbwtbjTLG2DHc2wCyv1PSiEBFeAXV/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">Live Demo</a>
-                                <a href="https://drive.google.com/drive/folders/1N8gaHfT4iHgmiT2Q9qU5GmR03ZpeIUwq" target="_blank" class="btn btn-outline-light flex-grow-1">Repository</a>
+                    <div class="card shadow-sm border-0 project-card bg-black h-100">
+                        <div class="card-img-wrapper">
+                            <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Lab Task 2">
+                            <div class="card-img-overlay-badge midterm-badge">Midterm 02</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title highlight-text">Data Preparation & Power Query</h5>
+                            <p class="card-text text-white flex-grow-1">Midterm Lab Task 2 focuses on preparing, transforming, and modeling data using Power Query to create a structured dataset for analysis.</p>
+                            <div class="card-actions mt-3">
+                                <div class="d-flex gap-2 mb-2">
+                                    <a href="https://drive.google.com/file/d/11qpCbwtbjTLG2DHc2wCyv1PSiEBFeAXV/view?usp=sharing" target="_blank" class="btn btn-primary flex-grow-1">
+                                        <i class="fas fa-eye me-1"></i> Live Demo
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1N8gaHfT4iHgmiT2Q9qU5GmR03ZpeIUwq" target="_blank" class="btn btn-outline-light flex-grow-1">
+                                        <i class="fab fa-github me-1"></i> Repository
+                                    </a>
+                                </div>
+                                <a href="https://drive.google.com/uc?export=download&id=11qpCbwtbjTLG2DHc2wCyv1PSiEBFeAXV" class="btn btn-download w-100">
+                                    <i class="fas fa-download me-2"></i> Download Raw File
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -254,71 +337,97 @@
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <h2 class="text-center mb-4">Skills</h2>
-            <p class="text-center lead mb-5">Technologies and tools I work with.</p>
+            <div class="section-header text-center mb-5">
+                <h2 class="fw-bold">Skills</h2>
+                <p class="lead text-muted">Technologies and tools I work with.</p>
+            </div>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Programming Languages</h5>
+            <div class="skills-group mb-5">
+                <h5 class="skills-group-label highlight-text mb-4">Programming Languages</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
-                        <i class="devicon-c-plain colored skill-icon"></i>
-                        <p>C Language</p>
+                        <div class="skill-item">
+                            <i class="devicon-c-plain colored skill-icon"></i>
+                            <p>C Language</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-java-plain colored skill-icon"></i>
-                        <p>Java</p>
+                        <div class="skill-item">
+                            <i class="devicon-java-plain colored skill-icon"></i>
+                            <p>Java</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-python-plain colored skill-icon"></i>
-                        <p>Python</p>
+                        <div class="skill-item">
+                            <i class="devicon-python-plain colored skill-icon"></i>
+                            <p>Python</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-mysql-plain colored skill-icon"></i>
-                        <p>MySQL</p>
+                        <div class="skill-item">
+                            <i class="devicon-mysql-plain colored skill-icon"></i>
+                            <p>MySQL</p>
+                        </div>
                     </div>
                 </div>
             </div>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Web Development</h5>
+            <div class="skills-group mb-5">
+                <h5 class="skills-group-label highlight-text mb-4">Web Development</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
-                        <i class="devicon-html5-plain colored skill-icon"></i>
-                        <p>HTML5</p>
+                        <div class="skill-item">
+                            <i class="devicon-html5-plain colored skill-icon"></i>
+                            <p>HTML5</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-css3-plain colored skill-icon"></i>
-                        <p>CSS3</p>
+                        <div class="skill-item">
+                            <i class="devicon-css3-plain colored skill-icon"></i>
+                            <p>CSS3</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-javascript-plain colored skill-icon"></i>
-                        <p>JavaScript</p>
+                        <div class="skill-item">
+                            <i class="devicon-javascript-plain colored skill-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-bootstrap-plain colored skill-icon"></i>
-                        <p>Bootstrap</p>
+                        <div class="skill-item">
+                            <i class="devicon-bootstrap-plain colored skill-icon"></i>
+                            <p>Bootstrap</p>
+                        </div>
                     </div>
                 </div>
             </div>
     
-            <div class="mb-5">
-                <h5 class="text-center highlight-text mb-4">Tools & IDEs</h5>
+            <div class="skills-group">
+                <h5 class="skills-group-label highlight-text mb-4">Tools & IDEs</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
-                        <i class="devicon-androidstudio-plain colored skill-icon"></i>
-                        <p>Android Studio</p>
+                        <div class="skill-item">
+                            <i class="devicon-androidstudio-plain colored skill-icon"></i>
+                            <p>Android Studio</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-photoshop-plain colored skill-icon"></i>
-                        <p>Photoshop</p>
+                        <div class="skill-item">
+                            <i class="devicon-photoshop-plain colored skill-icon"></i>
+                            <p>Photoshop</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-figma-plain colored skill-icon"></i>
-                        <p>Figma</p>
+                        <div class="skill-item">
+                            <i class="devicon-figma-plain colored skill-icon"></i>
+                            <p>Figma</p>
+                        </div>
                     </div>
                     <div class="col-md-3 col-6">
-                        <i class="devicon-visualstudio-plain colored skill-icon"></i>
-                        <p>Visual Studio</p>
+                        <div class="skill-item">
+                            <i class="devicon-visualstudio-plain colored skill-icon"></i>
+                            <p>Visual Studio</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,7 +445,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form id="contactForm">
+                    <form id="contactForm" class="contact-form">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label for="name" class="form-label">Name</label>
@@ -359,7 +468,9 @@
                         </div>
                         
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -371,9 +482,9 @@
     <footer class="py-4 bg-black text-white text-center">
         <div class="container">
             <div class="mb-3">
-                <a href="https://www.facebook.com/joshuabangit1" class="text-white mx-2" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://www.instagram.com/js.bnz/" class="text-white mx-2" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="text-white mx-2" target="_blank"><i class="fab fa-google fa-2x"></i></a>
+                <a href="https://www.facebook.com/joshuabangit1" class="text-white mx-2" target="_blank" aria-label="Facebook"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.instagram.com/js.bnz/" class="text-white mx-2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="text-white mx-2" target="_blank" aria-label="Gmail"><i class="fab fa-google fa-2x"></i></a>
             </div>
             <p class="mb-0">&copy; <span id="year"></span> Joshua Bangit. All rights reserved.</p>
         </div>
