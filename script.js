@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateActiveNavLink();
     initPeriodTabs();
-    initFileUploads();
-    initImageUploads();
     initGroupMembers();
 });
 
@@ -26,26 +24,21 @@ window.addEventListener('scroll', function () {
 
 // ===== PERIOD TABS (Midterms & Finals) =====
 function initPeriodTabs() {
-    // Each section has its own tab group
     const tabGroups = [
-        { tabs: document.querySelectorAll('#midtermTabs .period-tab'), section: 'midterm' },
-        { tabs: document.querySelectorAll('#finalsTabs .period-tab'),   section: 'finals'  }
+        { tabs: document.querySelectorAll('#midtermTabs .period-tab'), prefix: 'midterm' },
+        { tabs: document.querySelectorAll('#finalsTabs .period-tab'),   prefix: 'finals'  }
     ];
 
-    tabGroups.forEach(({ tabs }) => {
+    tabGroups.forEach(({ tabs, prefix }) => {
         tabs.forEach(tab => {
             tab.addEventListener('click', function () {
                 // Deactivate all tabs in this group
                 tabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
 
-                // Hide all panels that belong to this group
+                // Hide all panels for this prefix
                 const target = this.getAttribute('data-target');
-                const allPanels = document.querySelectorAll('.tab-content-panel');
-
-                // Determine sibling panel IDs by prefix
-                const prefix = target.startsWith('midterm') ? 'midterm' : 'finals';
-                allPanels.forEach(panel => {
+                document.querySelectorAll('.tab-content-panel').forEach(panel => {
                     if (panel.id.startsWith(prefix)) {
                         panel.classList.remove('active');
                     }
@@ -59,108 +52,14 @@ function initPeriodTabs() {
     });
 }
 
-// ===== FILE UPLOAD HANDLERS =====
-function initFileUploads() {
-    document.querySelectorAll('.file-upload-input').forEach(input => {
-        input.addEventListener('change', function () {
-            const cardId   = this.getAttribute('data-card');
-            const statusEl = document.getElementById('status-' + cardId);
-            if (!this.files || !this.files[0]) return;
-
-            const file     = this.files[0];
-            const maxSize  = 50 * 1024 * 1024; // 50MB soft limit
-
-            if (file.size > maxSize) {
-                showStatus(statusEl, '✗ File too large (max 50MB)', 'error');
-                return;
-            }
-
-            // Show attached filename
-            const shortName = file.name.length > 30 ? file.name.substring(0, 27) + '…' : file.name;
-            showStatus(statusEl, `✓ Attached: ${shortName}`, 'success');
-
-            // Update the label to reflect attachment
-            const label = this.closest('label');
-            if (label) {
-                const iconEl = label.querySelector('i');
-                if (iconEl) {
-                    iconEl.className = 'fas fa-paperclip me-2';
-                }
-                // Replace text node
-                label.childNodes.forEach(node => {
-                    if (node.nodeType === 3) {
-                        node.textContent = ' File Attached';
-                    }
-                });
-            }
-        });
-    });
-}
-
-function showStatus(el, message, type) {
-    if (!el) return;
-    el.textContent = message;
-    el.className = 'upload-status mt-1 ' + type;
-    // Clear after 5s
-    setTimeout(() => {
-        if (el.textContent === message) {
-            el.textContent = '';
-            el.className = 'upload-status mt-1';
-        }
-    }, 5000);
-}
-
-// ===== CARD IMAGE UPLOADS =====
-function initImageUploads() {
-    document.querySelectorAll('.card-img-upload').forEach(input => {
-        input.addEventListener('change', function () {
-            if (!this.files || !this.files[0]) return;
-
-            const file = this.files[0];
-            if (!file.type.startsWith('image/')) {
-                showNotification('Please select an image file.', 'warning');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                // Find the card-img-wrapper this input belongs to
-                const wrapper = this.closest('.card-img-wrapper') || this.closest('.group-task-banner');
-                if (!wrapper) return;
-
-                // Remove placeholder if present
-                const placeholder = wrapper.querySelector('.placeholder-img-finals');
-                if (placeholder) placeholder.remove();
-
-                // Check if an img already exists
-                let img = wrapper.querySelector('img.card-img-top');
-                if (img) {
-                    img.src = e.target.result;
-                } else {
-                    img = document.createElement('img');
-                    img.className = 'card-img-top';
-                    img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
-                    img.src = e.target.result;
-                    // Insert before attach button
-                    const attachLabel = wrapper.querySelector('.card-img-attach');
-                    wrapper.insertBefore(img, attachLabel);
-                }
-
-                showNotification('Screenshot attached successfully!', 'success');
-            };
-            reader.readAsDataURL(file);
-        });
-    });
-}
-
 // ===== GROUP MEMBER MANAGEMENT =====
 function initGroupMembers() {
-    const addBtn     = document.getElementById('addMemberBtn');
-    const inputArea  = document.getElementById('addMemberInput');
-    const nameInput  = document.getElementById('memberNameInput');
-    const saveBtn    = document.getElementById('saveMemberBtn');
-    const cancelBtn  = document.getElementById('cancelMemberBtn');
-    const tagsArea   = document.getElementById('groupMemberTags');
+    const addBtn    = document.getElementById('addMemberBtn');
+    const inputArea = document.getElementById('addMemberInput');
+    const nameInput = document.getElementById('memberNameInput');
+    const saveBtn   = document.getElementById('saveMemberBtn');
+    const cancelBtn = document.getElementById('cancelMemberBtn');
+    const tagsArea  = document.getElementById('groupMemberTags');
 
     if (!addBtn) return;
 
@@ -190,13 +89,9 @@ function initGroupMembers() {
         const tag = document.createElement('span');
         tag.className = 'member-tag';
         tag.innerHTML = `${name} <span class="member-remove" title="Remove">×</span>`;
-
-        // Remove on click
         tag.querySelector('.member-remove').addEventListener('click', () => tag.remove());
 
-        // Insert before the "Add Member" button
         tagsArea.insertBefore(tag, addBtn);
-
         nameInput.value = '';
         inputArea.classList.add('d-none');
     }
@@ -254,8 +149,8 @@ function showNotification(message, type) {
 
 // ===== ACTIVE NAV LINK =====
 function updateActiveNavLink() {
-    const sections  = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('.navbar-nav .nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     let currentSection = '';
 
     sections.forEach(section => {

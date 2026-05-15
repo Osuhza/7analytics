@@ -419,9 +419,9 @@ section h2::after {
 }
 
 .tag-practice {
-  background: rgba(255, 174, 0, 0.1);
-  color: var(--gold);
-  border: 1px solid rgba(255, 174, 0, 0.25);
+  background: rgba(59, 158, 255, 0.1);
+  color: var(--mid-blue);
+  border: 1px solid rgba(59, 158, 255, 0.25);
 }
 
 .tag-midterm {
@@ -605,34 +605,18 @@ section h2::after {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-}
-
-.btn-download::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-  z-index: 0;
-}
-
-.btn-download:hover::before {
-  transform: scaleX(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn-download:hover {
+  background: var(--gold);
   color: #000;
   border-color: var(--gold);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 174, 0, 0.25);
-}
-
-.btn-download i,
-.btn-download span {
-  position: relative;
-  z-index: 1;
 }
 
 /* Midterm download */
@@ -646,12 +630,11 @@ section h2::after {
   padding: 0.45rem 1rem;
   border-radius: 6px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .btn-download-mid:hover {
@@ -672,12 +655,11 @@ section h2::after {
   padding: 0.45rem 1rem;
   border-radius: 6px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .btn-download-finals:hover {
@@ -685,52 +667,6 @@ section h2::after {
   color: #000;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 212, 170, 0.25);
-}
-
-/* ===== UPLOAD STATUS ===== */
-.upload-status {
-  font-size: 0.75rem;
-  font-family: 'Space Mono', monospace;
-  min-height: 18px;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.upload-status.success { color: var(--finals-teal); }
-.upload-status.error   { color: #ff6b6b; }
-
-/* ===== CARD IMAGE ATTACH BUTTON ===== */
-.card-img-attach {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 34px;
-  height: 34px;
-  background: rgba(0,0,0,0.7);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #fff;
-  font-size: 0.85rem;
-  z-index: 2;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(4px);
-}
-
-.card-img-attach:hover {
-  background: var(--finals-teal);
-  border-color: var(--finals-teal);
-  color: #000;
-  transform: scale(1.1);
-}
-
-.card-img-attach-group {
-  bottom: auto;
-  top: 10px;
-  right: 10px;
 }
 
 /* ===== CARD STYLES ===== */
@@ -795,7 +731,15 @@ section h2::after {
   transform: scale(1.08);
 }
 
-/* Placeholder for cards without images */
+/* Placeholder for midterm cards without images */
+.placeholder-img-mid {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #09090f 0%, #0e1020 100%);
+  position: relative;
+}
+
+/* Placeholder for finals cards without images */
 .placeholder-img-finals {
   width: 100%;
   height: 100%;
@@ -820,7 +764,7 @@ section h2::after {
   z-index: 1;
 }
 
-.badge-prelim { background: rgba(255, 174, 0, 0.9); color: #000; }
+.badge-prelim  { background: rgba(255, 174, 0, 0.9); color: #000; }
 .badge-midterm { background: rgba(59, 158, 255, 0.9); color: #000; }
 .badge-finals  { background: rgba(0, 212, 170, 0.9); color: #000; }
 .badge-group   { background: rgba(255, 80, 120, 0.9); color: #fff; }
