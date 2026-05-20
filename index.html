@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg p-3 navbar-dark bg-dark shadow-sm fw-bold fixed-top">
         <div class="container">
@@ -52,18 +53,23 @@
     <section id="home" class="hero d-flex align-items-center text-white position-relative">
         <div class="container position-relative z-1">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 fade-in">
                     <p class="hero-tag mb-2"><span class="tag-dot"></span> Available for opportunities</p>
                     <h1 class="display-4 fw-bold">Hi, I'm <span class="highlight-text">Joshua Bangit</span></h1>
                     <p class="lead mb-4">I am a Computer Science student passionate about developing innovative projects and solutions.</p>
                     <div class="d-flex gap-3 flex-wrap">
-                        <a href="#midterms" class="btn btn-primary btn-lg px-4">View My Work</a>
-                        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Me</a>
+                        <a href="#midterms" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-folder-open me-2"></i>View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-envelope me-2"></i>Contact Me
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <div class="col-lg-6 text-center mt-5 mt-lg-0 fade-in fade-in-delay-1">
                     <div class="profile-wrapper">
-                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img"
+                             onerror="this.style.opacity='0.3'">
                     </div>
                 </div>
             </div>
@@ -73,19 +79,20 @@
     <!-- About Section -->
     <section id="about" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <div class="section-header text-center mb-5">
+            <div class="section-header text-center mb-5 fade-in">
                 <h2 class="fw-bold">About Me</h2>
                 <p class="lead text-muted">Get to know me better</p>
             </div>
             <div class="row align-items-center g-5">
-                <div class="col-md-5 text-center">
+                <div class="col-md-5 text-center fade-in">
                     <div class="profile-wrapper">
-                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img">
+                        <img src="images/joshua.png" alt="Joshua Bangit Profile Picture" class="img-fluid rounded-circle profile-img"
+                             onerror="this.style.opacity='0.3'">
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 fade-in fade-in-delay-1">
                     <h3 class="highlight-text mb-3">Who Am I?</h3>
-                    <p class="mb-3">I am a dedicated computer science student with a strong passion for coding, problem-solving, and innovation. With a focus on web development, I enjoy creating functional and visually appealing applications.</p>
+                    <p class="mb-3">I am a dedicated Computer Science student with a strong passion for coding, problem-solving, and innovation. With a focus on web development, I enjoy creating functional and visually appealing applications.</p>
                     <p class="mb-4">Currently pursuing my studies at City College of Angeles, I have worked on multiple projects that have honed my skills in both front-end and back-end development.</p>
                     
                     <blockquote class="blockquote fst-italic border-start border-3 border-primary ps-3 py-2 mb-4">
@@ -120,15 +127,17 @@
     <!-- Achievements Section -->
     <section id="achievements" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <div class="section-header text-center mb-5">
+            <div class="section-header text-center mb-5 fade-in">
                 <h2 class="fw-bold">Achievements</h2>
                 <p class="lead text-muted">Key milestones and accomplishments in my academic journey</p>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6">
+
+                <div class="col-lg-3 col-md-6 fade-in">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
                         <div class="card-img-wrapper">
-                            <img src="images/dean's list.jpg" class="card-img-top" alt="Dean's List Certificate">
+                            <img src="images/dean's list.jpg" class="card-img-top" alt="Dean's List Certificate"
+                                 onerror="this.parentElement.style.background='#111'">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">Dean's List</h5>
@@ -136,39 +145,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+
+                <div class="col-lg-3 col-md-6 fade-in fade-in-delay-1">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
                         <div class="card-img-wrapper">
-                            <img src="images/CCNA_Introduction_to_Networks_certificate.jpg" class="card-img-top" alt="Cisco Networking Certificate">
+                            <img src="images/CCNA_Introduction_to_Networks_certificate.jpg" class="card-img-top" alt="Cisco CCNAv7 Networking Certificate"
+                                 onerror="this.parentElement.style.background='#111'">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">Cisco Certificate</h5>
-                            <p class="card-text flex-grow-1">CCNAv7: Introduction to Networks Certificate demonstrating networking fundamentals.</p>
+                            <p class="card-text flex-grow-1">CCNAv7: Introduction to Networks — certificate demonstrating networking fundamentals.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+
+                <div class="col-lg-3 col-md-6 fade-in fade-in-delay-2">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
                         <div class="card-img-wrapper">
-                            <img src="images/PC Hardware and Software Certificate.jpg" class="card-img-top" alt="Cisco IT Essentials Certificate">
+                            <img src="images/PC Hardware and Software Certificate.jpg" class="card-img-top" alt="Cisco IT Essentials Certificate"
+                                 onerror="this.parentElement.style.background='#111'">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">IT Essentials</h5>
-                            <p class="card-text flex-grow-1">IT Essential: PC Hardware and Software Certificate for hardware expertise.</p>
+                            <p class="card-text flex-grow-1">IT Essentials: PC Hardware and Software — certificate demonstrating hardware expertise.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+
+                <div class="col-lg-3 col-md-6 fade-in fade-in-delay-3">
                     <div class="card shadow-sm border-0 h-100 bg-black achievement-card">
                         <div class="card-img-wrapper">
-                            <img src="images/i-days.jpg" class="card-img-top" alt="I-Days Event Award">
+                            <img src="images/i-days.jpg" class="card-img-top" alt="I-Days Event Award"
+                                 onerror="this.parentElement.style.background='#111'">
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title highlight-text">I-Days Event</h5>
-                            <p class="card-text flex-grow-1">Runner Up in the competition at I-Days event.</p>
+                            <p class="card-text flex-grow-1">Runner-up in the I-Days competition — a recognition of technical skill and teamwork.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -176,15 +192,14 @@
     <!-- ===== MIDTERMS SECTION ===== -->
     <section id="midterms" class="py-5 text-white section-midterms">
         <div class="container">
-            <!-- Section Header -->
-            <div class="section-header text-center mb-2">
+
+            <div class="section-header text-center mb-2 fade-in">
                 <div class="section-phase-label phase-midterm">Midterm Period</div>
                 <h2 class="fw-bold">Midterm Tasks</h2>
                 <p class="lead text-muted">Data preparation, modeling, and analysis tasks from the midterm period</p>
             </div>
 
-            <!-- Tab Navigation -->
-            <div class="period-tabs mb-5" id="midtermTabs">
+            <div class="period-tabs mb-5 fade-in" id="midtermTabs">
                 <button class="period-tab active" data-target="midterm-practice">
                     <i class="fas fa-flask me-2"></i>Practice Tasks
                     <span class="tab-count">4</span>
@@ -208,12 +223,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/task1_data_cleaning.png" class="card-img-top" alt="Practice Task 2">
-                                <div class="placeholder-img-mid d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-broom fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/task1_data_cleaning.png" class="card-img-top" alt="Practice Task 1: Data Cleaning and Preparation"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-broom fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Data Cleaning</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-midterm">Practice 01</div>
                             </div>
@@ -223,11 +237,12 @@
                                 <p class="card-text text-white flex-grow-1">Cleaning and preparing raw datasets by handling missing values, removing duplicates, and structuring data for accurate analysis.</p>
                                 <div class="card-actions mt-3">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="https://docs.google.com/spreadsheets/d/181qKecpNt3zn73EGlZ8qp9LX_e2HZIjJ/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" class="btn btn-midterm flex-grow-1">
+                                        <a href="https://docs.google.com/spreadsheets/d/181qKecpNt3zn73EGlZ8qp9LX_e2HZIjJ/edit?usp=sharing&ouid=117862991448212901042&rtpof=true&sd=true" target="_blank" class="btn btn-midterm flex-grow-1">
                                             <i class="fas fa-eye me-1"></i> View Task
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/file/d/1s9LYoWPI8cESgmMms16hOyuAMcBCFojG/view" class="btn btn-download-mid w-100">
+                                    <!-- Fixed: changed /view to export=download so file downloads directly -->
+                                    <a href="https://drive.google.com/uc?export=download&id=1s9LYoWPI8cESgmMms16hOyuAMcBCFojG" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -239,7 +254,12 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2">
+                                <img src="images/Practice Task 2. Demo Data Analysis.PNG" class="card-img-top" alt="Practice Task 2: Demo Data Analysis"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-chart-line fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Demo Analysis</p>
+                                </div>
                                 <div class="card-img-overlay-badge badge-midterm">Practice 02</div>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -255,7 +275,7 @@
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/uc?export=download&id=1EH7Wgqjr3WDjxyezzhPEEUJeJKOpeGRc" class="btn btn-download-mid w-100">
+                                    <a href="https://drive.google.com/uc?export=download&id=1EH7Wgqjr3WDjxyezzhPEEUJeJKOpeGRc" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -267,7 +287,12 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3">
+                                <img src="images/Practice Task 3. Advanced Excel Functions.PNG" class="card-img-top" alt="Practice Task 3: Advanced Excel Functions"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-table fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Excel Functions</p>
+                                </div>
                                 <div class="card-img-overlay-badge badge-midterm">Practice 03</div>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -283,7 +308,7 @@
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/uc?export=download&id=1N-WV2vn02qSWyX7YtZkBNAJ9TyLR3d4a" class="btn btn-download-mid w-100">
+                                    <a href="https://drive.google.com/uc?export=download&id=1N-WV2vn02qSWyX7YtZkBNAJ9TyLR3d4a" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -295,7 +320,12 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4">
+                                <img src="images/Practice Task 4. Data Cleaning and Prep using Power Query.PNG" class="card-img-top" alt="Practice Task 4: Data Cleaning with Power Query"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-filter fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Power Query</p>
+                                </div>
                                 <div class="card-img-overlay-badge badge-midterm">Practice 04</div>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -311,7 +341,7 @@
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/uc?export=download&id=1tVbpxSqot4QMaYTj0vyNCpQ4HhVwrac8" class="btn btn-download-mid w-100">
+                                    <a href="https://drive.google.com/uc?export=download&id=1tVbpxSqot4QMaYTj0vyNCpQ4HhVwrac8" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -335,7 +365,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/Midterm Task 1. Data Cleaning and Modeling.PNG" class="card-img-top" alt="Midterm Task 1">
+                                <img src="images/Midterm Task 1. Data Cleaning and Modeling.PNG" class="card-img-top" alt="Midterm Task 1: Data Cleaning and Modeling"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-database fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Data Modeling</p>
+                                </div>
                                 <div class="card-img-overlay-badge badge-midterm">Midterm 01</div>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -351,7 +386,7 @@
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/uc?export=download&id=1Wo3XOyKBAvdiMduSeuN9-9ydmT6Tdguz" class="btn btn-download-mid w-100">
+                                    <a href="https://drive.google.com/uc?export=download&id=1Wo3XOyKBAvdiMduSeuN9-9ydmT6Tdguz" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -363,7 +398,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Lab Task 2">
+                                <img src="images/Midterm Lab Task 2. Data Preparation and Modeling using Power Query.PNG" class="card-img-top" alt="Midterm Lab Task 2: Data Preparation with Power Query"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-mid" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-project-diagram fa-3x mb-3" style="color: #3b9eff; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Power Query</p>
+                                </div>
                                 <div class="card-img-overlay-badge badge-midterm">Midterm 02</div>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -379,7 +419,7 @@
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="https://drive.google.com/uc?export=download&id=1zWwM6vtS1AndvDlLrUfsvv2JAnPKhdpQ" class="btn btn-download-mid w-100">
+                                    <a href="https://drive.google.com/uc?export=download&id=1zWwM6vtS1AndvDlLrUfsvv2JAnPKhdpQ" target="_blank" class="btn btn-download-mid w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -396,15 +436,14 @@
     <!-- ===== FINALS SECTION ===== -->
     <section id="finals" class="py-5 text-white section-finals">
         <div class="container">
-            <!-- Section Header -->
-            <div class="section-header text-center mb-2">
+
+            <div class="section-header text-center mb-2 fade-in">
                 <div class="section-phase-label phase-finals">Finals Period</div>
                 <h2 class="fw-bold">Finals Tasks</h2>
                 <p class="lead text-muted">SQL, Power BI, and advanced analytics tasks from the finals period</p>
             </div>
 
-            <!-- Tab Navigation -->
-            <div class="period-tabs mb-5" id="finalsTabs">
+            <div class="period-tabs mb-5 fade-in" id="finalsTabs">
                 <button class="period-tab active" data-target="finals-practice">
                     <i class="fas fa-flask me-2"></i>Practice Tasks
                     <span class="tab-count tab-count-finals">1</span>
@@ -427,15 +466,15 @@
                     <span class="subsection-line finals-line"></span>
                 </div>
                 <div class="row g-4 justify-content-center mt-1">
-                    <!-- Finals Practice Task 1 -->
+
                     <div class="col-lg-5 col-md-8">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <div class="placeholder-img-finals d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-database fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/finals_dataPrep.png" class="card-img-top" alt="Finals Practice Task 1: Data Prep and EDA using SQL"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-finals" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-database fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">SQL & EDA</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-finals">Finals Practice 01</div>
                             </div>
@@ -450,20 +489,22 @@
                                 </div>
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
+                                        <a href="https://drive.google.com/file/d/19rs0oggV934h49OeQFVtjY0y6ewIm493/view" target="_blank" class="btn btn-finals flex-grow-1">
                                             <i class="fas fa-eye me-1"></i> View Task
                                         </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
+                                        <a href="https://drive.google.com/file/d/1kwo1Tgu5Mw4LbE5nyXg5DLk3pMqhzolp/view" target="_blank" class="btn btn-outline-finals flex-grow-1">
                                             <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
+                                    <!-- Fixed: converted /view to export=download for direct file download -->
+                                    <a href="https://drive.google.com/uc?export=download&id=19rs0oggV934h49OeQFVtjY0y6ewIm493" target="_blank" class="btn btn-download-finals w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -480,11 +521,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <div class="placeholder-img-finals d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-book-open fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/finals_essay.png" class="card-img-top" alt="Finals Essay Task 1: Reading Task on Analytics"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-finals" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-book-open fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Essay Task</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-finals">Essay Task 01</div>
                             </div>
@@ -498,30 +539,27 @@
                                 </div>
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
-                                            <i class="fas fa-eye me-1"></i> View
-                                        </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
-                                            <i class="fas fa-code-branch me-1"></i> Repo
+                                        <a href="https://drive.google.com/file/d/1vT85XQvStAYnshixQRYhQuYYppmUS5xA/view" target="_blank" class="btn btn-finals flex-grow-1">
+                                            <i class="fas fa-eye me-1"></i> View Essay
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
-                                        <i class="fas fa-download me-2"></i> Download Raw File
+                                    <a href="https://drive.google.com/file/d/1H_UKLDQSa06Mw2WSMiLUK9pP8UwJMjQn/view" target="_blank" class="btn btn-download-finals w-100">
+                                        <i class="fas fa-file-alt me-2"></i> View Instructions
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Finals Task 2 -->
+                    <!-- Finals Task 2: Navigating Power BI -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <div class="placeholder-img-finals d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-chart-bar fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/finals2_navigating_powerbi.png" class="card-img-top" alt="Finals Task 2: Navigating Power BI"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-finals" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-chart-bar fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Power BI</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-finals">Task 02</div>
                             </div>
@@ -535,30 +573,34 @@
                                 </div>
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
+                                        <a href="https://drive.google.com/file/d/1myVQkC2e2tl2TX3Xyju0-DtZY92mwlon/view" target="_blank" class="btn btn-finals flex-grow-1">
                                             <i class="fas fa-eye me-1"></i> View
                                         </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
-                                            <i class="fas fa-code-branch me-1"></i> Repo
+                                        <a href="https://drive.google.com/file/d/1L6ZrXTCtcIiNixA8Le_X_CmQdjqBAlJO/view" target="_blank" class="btn btn-outline-finals flex-grow-1">
+                                            <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
-                                        <i class="fas fa-download me-2"></i> Download Raw File
+                                    <!-- Fixed: two separate download buttons for each CSV dataset -->
+                                    <a href="https://drive.google.com/uc?export=download&id=1Umed4OKJVjf5JEa9Naa3NlvcNkUZcy9n" target="_blank" class="btn btn-download-finals w-100 mb-2">
+                                        <i class="fas fa-download me-2"></i> Download Airline Flight Data
+                                    </a>
+                                    <a href="https://drive.google.com/uc?export=download&id=1CIXIvU_WGCZAeY6K0S62wKr65BhTGx0C" target="_blank" class="btn btn-download-finals w-100">
+                                        <i class="fas fa-download me-2"></i> Download Airport Data
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Finals Task 3 -->
+                    <!-- Finals Task 3: Time Intelligence Functions -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <div class="placeholder-img-finals d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-clock fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/finals_task3.png" class="card-img-top" alt="Finals Task 3: Time Intelligence Functions"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-finals" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-clock fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">DAX / Time</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-finals">Task 03</div>
                             </div>
@@ -573,14 +615,15 @@
                                 </div>
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
+                                        <a href="https://drive.google.com/file/d/11kcUcvVIlvbtRM-2aerPVyTVl39cl5xw/view?authuser=0&usp=classroom_web" target="_blank" class="btn btn-finals flex-grow-1">
                                             <i class="fas fa-eye me-1"></i> View
                                         </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
-                                            <i class="fas fa-code-branch me-1"></i> Repo
+                                        <a href="https://drive.google.com/file/d/18lroctBFi-uexuOEgQ7CFHMf_PZRPmRU/view" target="_blank" class="btn btn-outline-finals flex-grow-1">
+                                            <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
+                                    <!-- Fixed: converted /view to export=download for direct file download -->
+                                    <a href="https://drive.google.com/uc?export=download&id=18lroctBFi-uexuOEgQ7CFHMf_PZRPmRU" target="_blank" class="btn btn-download-finals w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -588,15 +631,15 @@
                         </div>
                     </div>
 
-                    <!-- Finals Lab Task 4 -->
+                    <!-- Finals Lab Task 4: Interactive Reports -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card shadow-sm border-0 project-card bg-black h-100">
                             <div class="card-img-wrapper">
-                                <div class="placeholder-img-finals d-flex align-items-center justify-content-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-palette fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
-                                        <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Add image via href</p>
-                                    </div>
+                                <img src="images/finals_lab_task4.png" class="card-img-top" alt="Finals Lab Task 4: Interactive Reports in Power BI"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-img-finals" style="display:none" aria-hidden="true">
+                                    <i class="fas fa-palette fa-3x mb-3" style="color: #00d4aa; opacity: 0.6;"></i>
+                                    <p class="mb-0" style="color: #555; font-size: 0.8rem; font-family: 'Space Mono', monospace;">Interactive</p>
                                 </div>
                                 <div class="card-img-overlay-badge badge-finals">Lab Task 04</div>
                             </div>
@@ -611,14 +654,15 @@
                                 </div>
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
+                                        <a href="https://drive.google.com/file/d/17bkOlqI1VeIRr6qFdN-5d9Y6UMgGUzo8/view" target="_blank" class="btn btn-finals flex-grow-1">
                                             <i class="fas fa-eye me-1"></i> View
                                         </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
-                                            <i class="fas fa-code-branch me-1"></i> Repo
+                                        <a href="https://drive.google.com/file/d/1-hLJUF9CKvOUbes15bhyTPwQDkld6zp8/view" target="_blank" class="btn btn-outline-finals flex-grow-1">
+                                            <i class="fas fa-code-branch me-1"></i> Repository
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
+                                    <!-- Fixed: converted /view to export=download for direct file download -->
+                                    <a href="https://drive.google.com/uc?export=download&id=1-hLJUF9CKvOUbes15bhyTPwQDkld6zp8" target="_blank" class="btn btn-download-finals w-100">
                                         <i class="fas fa-download me-2"></i> Download Raw File
                                     </a>
                                 </div>
@@ -637,13 +681,17 @@
                     <span class="subsection-line finals-line"></span>
                 </div>
                 <div class="row g-4 justify-content-center mt-1">
-                    <!-- Group Task Card -->
                     <div class="col-lg-6 col-md-9">
                         <div class="card shadow-sm border-0 project-card bg-black h-100 group-task-card">
-                            <div class="group-task-banner">
-                                <div class="group-banner-inner">
-                                    <i class="fas fa-users-cog fa-4x mb-3" style="color: #00d4aa; opacity: 0.7;"></i>
-                                    <p class="mb-0 group-banner-label">Group Project</p>
+                            <!-- Fixed: image wrapped in .card-img-wrapper so overlay badge positions correctly -->
+                            <div class="card-img-wrapper group-img-wrapper">
+                                <img src="images/group_task.png" class="card-img-top" alt="Group Task: Project Preparation"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="group-task-banner" style="display:none" aria-hidden="true">
+                                    <div class="group-banner-inner">
+                                        <i class="fas fa-users-cog fa-4x mb-3" style="color: #00d4aa; opacity: 0.7;"></i>
+                                        <p class="mb-0 group-banner-label">Group Project</p>
+                                    </div>
                                 </div>
                                 <div class="card-img-overlay-badge badge-group">Group Task</div>
                             </div>
@@ -657,14 +705,15 @@
                                     <span class="tech-pill">Project</span>
                                     <span class="tech-pill">Presentation</span>
                                 </div>
+
                                 <!-- Group Members -->
                                 <div class="group-members-area mb-3">
                                     <p class="group-members-label"><i class="fas fa-user-friends me-2"></i>Group Members</p>
                                     <div class="group-member-tags" id="groupMemberTags">
                                         <span class="member-tag">Joshua Bangit</span>
-                                        <span class="member-tag member-add" id="addMemberBtn" title="Add member">
-                                            <i class="fas fa-plus me-1"></i> Add Member
-                                        </span>
+                                        <span class="member-tag">Alenor Antap</span>
+                                        <span class="member-tag">Ellah Jane Mortel</span>
+                                        <span class="member-tag">Jason Montes</span>
                                     </div>
                                     <div class="add-member-input d-none" id="addMemberInput">
                                         <div class="d-flex gap-2 mt-2">
@@ -674,17 +723,19 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-actions mt-auto">
                                     <div class="d-flex gap-2 mb-2">
-                                        <a href="#" class="btn btn-finals flex-grow-1">
-                                            <i class="fas fa-eye me-1"></i> View Project
+                                        <a href="https://drive.google.com/file/d/10q0QpmIi6OMbqLd7Rh6J_OrqQRdUZ4Gm/view" target="_blank" class="btn btn-finals flex-grow-1">
+                                            <i class="fas fa-eye me-1"></i> View Documentation
                                         </a>
-                                        <a href="#" class="btn btn-outline-finals flex-grow-1">
-                                            <i class="fas fa-code-branch me-1"></i> Repository
+                                        <a href="https://drive.google.com/file/d/13vhN8zw4odcybX1bmeaEHKV3OL_sNKQF/view" target="_blank" class="btn btn-outline-finals flex-grow-1">
+                                            <i class="fas fa-key me-1"></i> Key Metrics
                                         </a>
                                     </div>
-                                    <a href="#" class="btn btn-download-finals w-100">
-                                        <i class="fas fa-download me-2"></i> Download File / Presentation
+                                    <!-- Fixed: changed to btn-view-project — a proper navigation button, not a download button -->
+                                    <a href="https://osuhza.github.io/my-powerbi-project/" target="_blank" class="btn btn-view-project w-100">
+                                        <i class="fas fa-external-link-alt me-2"></i> View Final Project
                                     </a>
                                 </div>
                             </div>
@@ -699,12 +750,12 @@
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-dark-custom text-white">
         <div class="container">
-            <div class="section-header text-center mb-5">
+            <div class="section-header text-center mb-5 fade-in">
                 <h2 class="fw-bold">Skills</h2>
-                <p class="lead text-muted">Technologies and tools I work with.</p>
+                <p class="lead text-muted">Technologies and tools I work with</p>
             </div>
-    
-            <div class="skills-group mb-5">
+
+            <div class="skills-group mb-5 fade-in">
                 <h5 class="skills-group-label highlight-text mb-4">Programming Languages</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
@@ -733,8 +784,8 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="skills-group mb-5">
+
+            <div class="skills-group mb-5 fade-in">
                 <h5 class="skills-group-label highlight-text mb-4">Web Development</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
@@ -763,8 +814,8 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="skills-group">
+
+            <div class="skills-group fade-in">
                 <h5 class="skills-group-label highlight-text mb-4">Tools & IDEs</h5>
                 <div class="row text-center g-4">
                     <div class="col-md-3 col-6">
@@ -800,13 +851,13 @@
     <section id="contact" class="py-5 bg-dark-custom text-white">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-5">
+                <div class="col-lg-8 text-center mb-5 fade-in">
                     <h2 class="fw-bold mb-3">Contact Me</h2>
                     <p class="lead">Have a project in mind or want to connect? Feel free to reach out!</p>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 fade-in">
                     <form id="contactForm" class="contact-form">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
@@ -848,6 +899,11 @@
             <p class="mb-0">&copy; <span id="year"></span> Joshua Bangit. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
